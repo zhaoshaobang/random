@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery平面响应式全屏支持进度条样式焦点图</title>
+<link href="css/random.css" rel="stylesheet">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+		//var loginFlag = false;
+		//var loginHelper = null;
+		$(document).ready(function(){
+			$('.carousel').carousel(
+				{
+					"pause":"false",
+					"interval":20000
+				}
+			);
+			
+			$('.carousel').on('slide.bs.carousel', function (event) {
+				var tag = $(event.relatedTarget).attr("tag");
+				var progress = $(event.relatedTarget).attr("progress");
+				
+				$('#img_juejiu').attr("src", "images/juejiu.png");
+				$('#img_jinxin').attr("src", "images/jinxin.png");
+				$('#img_guowen').attr("src", "images/guowen.png");
+				$('#img_qinqin').attr("src", "images/qinqin.png");
+				$('#img_gengxin').attr("src", "images/gengxin.png");
+				$('#img_chunjie').attr("src", "images/chunjie.png");
+				
+				$('#img_' + tag).attr("src", "images/" + tag + "_selected.png");
+				
+				//$("#progress").width(progress + "px");
+				//$("#progress").css('left', (progress / 2) - 400 + "px");
+				$("#progress").animate({width: progress, left: (progress / 2) - 475}, 500);
+				playAnimation(tag);
+			});
+			
+			$("body,html").animate({
+               scrollTop:($("#random_juejiu .splash-container").offset().top)
+            },10);
+			
+			playAnimation("juejiu");
+			
+		}); 
+		
+		function switchlanrenzhijia(Index){
+			$('.carousel').carousel(Index);
+		}
+		
+		function playAnimation(tag){
+			var ani1 = $("#random_" + tag + " .ani_step_1");
+			var ani2 = $("#random_" + tag + " .ani_step_2");
+			var ani3 = $("#random_" + tag + " .ani_step_3");
+			var pre_start = ((tag == "juejiu") ? 0 : 300);
+			if(ani1 != null){
+				ani1.css("opacity", 0);
+				setTimeout(function(){
+					ani1.animate({opacity: 1}, 1000);
+				}, 10 + pre_start);
+			}
+			if(ani2 != null){
+				ani2.css("opacity", 0);
+				setTimeout(function(){
+					ani2.animate({opacity: 1}, 1000);
+				}, 500 + pre_start);
+			}
+			if(ani3 != null){
+				ani3.css("opacity", 0);
+				setTimeout(function(){
+					$("#random_" + tag + " .ani_step_3").animate({opacity: 1}, 1000);
+				}, 3000 + pre_start);
+			}
+		}
+	</script>
+</head>
+
+<body>
+
+<div id="carousel_container" class="carousel slide full_height">
+	<div class="carousel-inner full_height">
+		<div id="random_juejiu" class="random item active" tag="juejiu" progress="150">
+			<div id="main">
+				<div id="splash">
+					<div class="container splash-container">
+						<!-- <img src="images/title.png" alt="百度微任务" class="ani_step_2"/>
+						<div id="splash_introduction" class="ani_step_2">
+							<img src="images/home_desc.png" alt="百度微任务介绍"/>						</div>
+						<div id="download_btn_group" class="container ani_step_1">
+							<div id="download_place_holder" class="horizental-item" ></div>
+							<div class="horizental-item">
+								<a href="http://www.lanrenzhijiazhijia.com/" target="_blank" id="splash_download_button" class="download-button">
+									<div class="download-title">
+										<div id="download_icon"></div><span>&nbsp;&nbsp;立即体验</span>									</div>
+									<div class="download-subtitle">
+										百度微任务V2.2.1 Android下载 12月31日更新									</div>
+								</a>							</div>
+											  <div class="horizental-item">
+								<div id="splash_download_qrcode">
+									<img class="qrcode" src="./images/qrcode.png" alt="二维码下载">
+									<div id="qrcode_hint">建议使用<a href="http://www.lanrenzhijiazhijia.com/">百度手机浏览器</a>扫描</div>
+								</div>
+							</div>
+						</div> -->
+						<img src="images/JJ.png" alt="" class="add_radius"/>
+						<h2 class="name ani_step_1">诀九</h2>
+						<h2 class="blog ani_step_1"><a href="http://blog.csdn.net/u012193330" target="_blank"><strong>CSDN博客：</strong>http://blog.csdn.net/u012193330</a></h2>
+						<h2 class="blog ani_step_1"><a href="http://zhaoshaobang.github.io/blog" target="_blank"><strong>Github：</strong>http://zhaoshaobang.github.io/blog</a></h2>
+						<p class="info_me ani_step_2">Random 成员-诀九：作为一名在读研究生，接触了计算机的很多方面，如：影视动画，编程，音视频编解码。特别钟爱于前端，接触过flash，AS3.0，AS2.0，HTML/HTML5，CSS/CSS3.0，Javascript，Bootstrap，JQuery，Ajax等。
+						</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="random_jinxin" class="random item" tag="jinxin" progress="300">
+			<div id="main">
+				<div id="splash" class="ani_step_1">
+					<div class="container splash-container">
+										
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="random_guowen" class="random item" tag="guowen" progress="450">
+			<div id="main">
+				<div id="splash">
+					<div class="container splash-container ani_step_2">
+						<img src="images/gift_splash.png" alt="精美礼品"/>					
+					</div>
+									
+				</div>
+			</div>
+		</div>
+		<div id="random_qinqin" class="random item" tag="qinqin" progress="600">
+			<div id="main">
+				<div id="splash">
+					<div class="container splash-container ani_step_2">
+						<img src="images/feedback_splash.png" alt="意见反馈"/>					
+					</div>
+								
+				</div>
+			</div>
+		</div>
+		<div id="random_gengxin" class="random item" tag="gengxin" progress="750">
+			<div id="main">
+				<div id="splash" class="ani_step_1">
+					<div class="container splash-container">
+						<img id="related_demo" src="images/related_demo.png" alt="演示项目"/>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- test -->
+		<div id="random_chunjie" class="random item" tag="chunjie" progress="900">
+			<div id="main">
+				<div id="splash">
+					<div class="container splash-container">
+						<img src="images/title.png" alt="百度微任务" class="ani_step_2"/>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="footer" >
+    <div id="navbar">
+		<div id="dash" ></div>
+		<div id="progress"></div>
+		<div id="navbtns" class="container" >
+			<div class="navbtn">
+				<a href="javascript:switchlanrenzhijia(0)">
+					<img id="img_juejiu" src="images/juejiu_selected.png" alt="诀九">
+					<div>诀九</div>
+				</a>
+			</div>
+			<div class="navbtn">
+				<a href="javascript:switchlanrenzhijia(1)">
+					<img id="img_jinxin" src="images/jinxin.png" alt="张金新">
+					<div>张金新</div>
+				</a>
+			</div>
+			<div class="navbtn">
+				<a href="javascript:switchlanrenzhijia(2)">
+					<img id="img_guowen" src="images/guowen.png" alt="陈国文">
+					<div>陈国文</div>
+				</a>
+			</div>
+			<div class="navbtn">
+				<a href="javascript:switchlanrenzhijia(3)">
+					<img id="img_qinqin" src="images/qinqin.png" alt="彭亲亲">
+					<div>彭亲亲</div>
+				</a>
+			</div>
+			<div class="navbtn">
+				<a href="javascript:switchlanrenzhijia(4)">
+					<img id="img_gengxin" src="images/gengxin.png" alt="张耿欣">
+					<div>张耿欣</div>
+				</a>
+			</div>
+			<div class="navbtn">
+				<a href="javascript:switchlanrenzhijia(5)">
+					<img id="img_chunjie" src="images/chunjie.png" alt="周椿杰">
+					<div>周椿杰</div>
+				</a>
+			</div>
+		</div>
+    </div>
+</div>
+</body>
+</html>
