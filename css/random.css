@@ -384,17 +384,3 @@ p.info_me{
 	padding: 10px 20px;
 	vertical-align: middle;
 }
-/*add by Jsonz*/
-.random-jsonz p.info_me{
-	color:#D33C45;
-}
-.random-jsonz .add_radius{
-	background: url(../images/Jsonz.jpg) no-repeat center left -70px;
-	background-size:200%;
-	border-radius: 100px;
-	border:4px solid #fff;
-	width: 200px;
-	height: 200px;
-	margin-left:auto;
-	margin-right:auto;
-}
