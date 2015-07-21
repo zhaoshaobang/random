@@ -398,3 +398,14 @@ p.info_me{
 	margin-left:auto;
 	margin-right:auto;
 }
+
+/* add by zcj*/
+#random_chunjie .add_radius{
+	background-color: #fff;
+	border-radius: 100px;
+	border:4px solid #fff;
+	width: 200px;
+	height: 200px;
+	margin-left:auto;
+	margin-right:auto;
+}
